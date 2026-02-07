@@ -3,10 +3,14 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Menu, X, Phone, Sparkles } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
 
 export function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
     const { scrollY } = useScroll();
+    const pathname = usePathname();
+    const router = useRouter();
+
     const backgroundColor = useTransform(
         scrollY,
         [0, 100],
@@ -15,7 +19,11 @@ export function Navigation() {
     const borderOpacity = useTransform(scrollY, [0, 100], [0, 0.1]);
 
     const scrollToSection = (id: string) => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        if (pathname !== '/') {
+            router.push(`/#${id}`);
+        } else {
+            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        }
         setIsOpen(false);
     };
 
