@@ -137,6 +137,7 @@ export function Navigation() {
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setIsOpen(!isOpen)}
                             className="md:hidden p-2 text-white"
+                            aria-label={isOpen ? "Close menu" : "Open menu"}
                         >
                             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                         </motion.button>

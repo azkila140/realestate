@@ -153,14 +153,15 @@ export function Footer() {
                             <p className="text-slate-500 text-xs mb-3">تابعنا / Follow Us</p>
                             <div className="flex items-center gap-3">
                                 {[
-                                    { icon: Instagram, href: '#' },
-                                    { icon: Linkedin, href: '#' },
-                                    { icon: Facebook, href: '#' },
+                                    { icon: Instagram, href: '#', label: 'Instagram' },
+                                    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+                                    { icon: Facebook, href: '#', label: 'Facebook' },
                                 ].map((social, index) => (
                                     <a
                                         key={index}
                                         href={social.href}
                                         className="w-10 h-10 bg-amber-400/10 rounded-lg flex items-center justify-center hover:bg-amber-400/20 transition-colors group"
+                                        aria-label={social.label}
                                     >
                                         <social.icon className="w-5 h-5 text-amber-400" />
                                     </a>

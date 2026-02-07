@@ -216,6 +216,7 @@ export function HeroSection() {
                             whileTap={{ scale: 0.9 }}
                             onClick={prevSlide}
                             className="w-14 h-14 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                            aria-label="Previous slide"
                         >
                             <ChevronRight className="w-6 h-6" />
                         </motion.button>
@@ -224,6 +225,7 @@ export function HeroSection() {
                             whileTap={{ scale: 0.9 }}
                             onClick={nextSlide}
                             className="w-14 h-14 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                            aria-label="Next slide"
                         >
                             <ChevronLeft className="w-6 h-6" />
                         </motion.button>
@@ -236,11 +238,12 @@ export function HeroSection() {
                                 key={index}
                                 onClick={() => goToSlide(index)}
                                 className="group relative"
+                                aria-label={`Go to slide ${index + 1}`}
                             >
                                 <div
                                     className={`h-1 rounded-full transition-all duration-300 ${index === currentSlide
-                                            ? 'w-16 bg-amber-400'
-                                            : 'w-8 bg-white/30 group-hover:bg-white/50'
+                                        ? 'w-16 bg-amber-400'
+                                        : 'w-8 bg-white/30 group-hover:bg-white/50'
                                         }`}
                                 />
                             </button>
@@ -253,6 +256,7 @@ export function HeroSection() {
                         whileTap={{ scale: 0.9 }}
                         onClick={() => setIsAutoPlaying(!isAutoPlaying)}
                         className="w-14 h-14 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                        aria-label={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
                     >
                         {isAutoPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 mr-0.5" />}
                     </motion.button>

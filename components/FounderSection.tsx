@@ -126,12 +126,12 @@ export function FounderSection() {
                             {/* Image */}
                             <div className="relative h-full bg-slate-800 rounded-2xl overflow-hidden border border-white/10">
                                 <Image
-                                    src="/mohamad-hero.png"
+                                    src="/mohamad-hero.webp"
                                     alt="Mohamad Kodmani - Real Estate Broker"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                     className="object-cover object-center"
                                     priority
-                                    unoptimized
                                 />
                             </div>
                         </div>
