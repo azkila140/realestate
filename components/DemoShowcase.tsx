@@ -55,7 +55,7 @@ export function DemoShowcase() {
             {/* Disclaimer Banner */}
             <div className="fixed top-0 left-0 right-0 z-50 bg-amber-500/10 backdrop-blur-md border-b border-amber-500/20 py-2 px-4 text-center">
                 <p className="text-amber-400 text-xs md:text-sm font-semibold tracking-widest uppercase">
-                    ⚠️ Demo Preview • Concept Showcase
+                    ⚠️ Showcase V3: Visuals & Scroll Active
                 </p>
             </div>
 
@@ -86,13 +86,11 @@ export function DemoShowcase() {
 
                             {/* Content - Relative Z-10 */}
                             <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-                                <motion.div
-                                    initial={{ scale: 0, opacity: 0 }}
-                                    whileInView={{ scale: 1, opacity: 1 }}
+                                <div
                                     className="w-24 h-24 mx-auto bg-gradient-to-br from-amber-400 to-orange-600 rounded-2xl flex items-center justify-center mb-8 shadow-2xl shadow-orange-500/20"
                                 >
                                     <Sparkles className="w-12 h-12 text-white" />
-                                </motion.div>
+                                </div>
                                 <h1 className="text-6xl md:text-9xl font-playfair font-bold mb-6 text-white drop-shadow-2xl">
                                     The Luxury Standard
                                 </h1>
