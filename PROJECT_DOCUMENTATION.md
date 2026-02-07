@@ -1,20 +1,15 @@
 # 🏰 Luxury Real Estate "Sales Machine" - Project Documentation
 
 ## 1. Project Overview
-**Dubai Prime Estates** is a high-performance, conversion-focused real estate platform designed to capture high-net-worth individual (HNWI) leads. Unlike standard listing sites, this project operates as a "Sales Machine," integrating advanced User Experience (UX) with backend automation to streamline the lead-to-deal pipeline.
+**Dubai Prime Estates** is a conversion-first real estate web app built with Next.js that **captures, validates, stores, and routes leads in real time**, then triggers WhatsApp/CRM follow-ups and provides an admin dashboard to monitor pipeline + system health.
 
-**Key Capabilities:**
-*   **Immersive UX**: "Glassmorphism" design, parallax scrolling, and premium aesthetics.
-*   **Automated Lead Capture**: Real-time validation and database entry.
-*   **Integration Simulation**: Demonstrates connecting forms to WhatsApp Business API and CRM systems (Salesforce/HubSpot).
-*   **Performance First**: 98+ Google PageSpeed score, SEO-optimized with JSON-LD schema and dynamic sitemaps.
-*   **Admin Command Center**: A CRM-lite dashboard for managing leads and monitoring system health.
+It is designed to demonstrate **Full-Stack Ownership**: moving beyond static UI to building a resilient, observable sales engine.
 
 ---
 
-## 2. Architecture & Lead Flow Diagram
+## 2. System Architecture & Data Flow
 
-The system follows a modern **Event-Driven Architecture** using Next.js Server Actions and Supabase.
+The system employs **Async Integration Patterns** to handle lead processing without improved latency for the user.
 
 ```mermaid
 graph TD
@@ -23,12 +18,12 @@ graph TD
     subgraph Frontend [Next.js Client Layer]
         LandingPage[HOME: Luxury Landing Page]
         LeadModal[UI: Smart Lead Capture Modal]
-        Showcase[UI: Horizontal Showcase]
     end
     
     subgraph Backend [Next.js Server Actions]
         CaptureAction{⚡ Capture Lead Action}
         WhyValidate[Zod Validation]
+        RoutingLogic[Lead Routing Rules]
         LogSystem[System Logger]
     end
     
@@ -37,10 +32,9 @@ graph TD
         LogsTable[(📝 System Logs)]
     end
     
-    subgraph Integrations [Simulated External APIs]
-        WhatsApp[📱 WhatsApp Business API]
-        CRM[💼 Salesforce / HubSpot]
-        Email[📧 Email Notification Service]
+    subgraph Automated Jobs [Async Integrations]
+        WhatsApp[📱 WhatsApp Trigger]
+        CRM[💼 CRM Sync]
     end
 
     %% Flow
@@ -49,17 +43,59 @@ graph TD
     LeadModal -->|Submits Form| CaptureAction
     
     CaptureAction -->|Validates Data| WhyValidate
-    WhyValidate -->|If Valid| LeadsTable
-    WhyValidate -->|If Invalid| LeadModal
+    WhyValidate -->|If Valid| RoutingLogic
     
-    LeadsTable -->|Trigger| LogSystem
-    LogSystem -->|Event: WHATSAPP_OUTBOUND| WhatsApp
-    LogSystem -->|Event: CRM_SYNC| CRM
+    RoutingLogic -->|Assign Agent| LeadsTable
+    LeadsTable -->|Write Success| LogSystem
+    
+    LogSystem -->|Log: WHATSAPP_OUTBOUND| WhatsApp
+    LogSystem -->|Log: CRM_SYNC| CRM
     
     %% Admin Feedback Loop
-    LogsTable -.->|Real-time Feed| AdminDashboard[📊 Admin CRM Dashboard]
-    LeadsTable -.->|Pipeline View| AdminDashboard
+    LogsTable -.->|Live Activity Feed| AdminDashboard[📊 Admin CRM Dashboard]
 ```
+
+### Real vs. Simulated Capabilities
+
+To provide full transparency on the demo's scope:
+
+| Feature | Status | Implementation Details |
+| :--- | :--- | :--- |
+| **Lead Capture** | ✅ **REAL** | Next.js Server Actions receiving form data. |
+| **Data Validation** | ✅ **REAL** | **Zod** schema ensures valid phones/emails before DB write. |
+| **Database Storage** | ✅ **REAL** | **Supabase** (PostgreSQL) stores leads per RLS policies. |
+| **System Logging** | ✅ **REAL** | Custom `system_logs` table tracks every event. |
+| **Admin Dashboard** | ✅ **REAL** | Reads live data from Supabase to show pipeline/logs. |
+| **WhatsApp Sending** | ⚠️ *SIMULATED* | Logs the *intent* and payload to DB; API call is mocked. |
+| **CRM Sync** | ⚠️ *SIMULATED* | Simulates latency and success response for Salesforce/HubSpot. |
+
+---
+
+## 3. Business Logic & Operations
+
+### Lead Routing Rules (Ownership Example)
+The system implements basic "Sales Operations" logic to prioritize leads:
+*   **Budget > 20M AED** → Assigned to "Senior Director" (High Priority).
+*   **Property Type: Penthouse** → Tagged "VIP" in CRM.
+*   **Source: WhatsApp** → 5-minute SLA timer triggered.
+
+### Security & Compliance
+*   **Row Level Security (RLS)**: Only authenticated Admins can read leads; Public can only Insert.
+*   **Input Sanitization**: Zod strips HTML/SQL injection attempts from text fields.
+*   **Rate Limiting**: (Planned) Middleware to block IP flooding on form endpoints.
+*   **Data Retention**: Logs auto-expire after 90 days (GDPR compliance pattern).
+
+### Ops & Infrastructure Check
+*   **Environment Variables**: Strict separation of secrets (Database Keys) vs Public (Anon Keys). 
+*   **Deployment**: CI/CD via Vercel (Push to Main → Production).
+*   **Monitoring**: 
+    *   **Vercel Analytics** for Real User Monitoring (RUM).
+    *   **Custom System Logs** for business logic failures (record not saved, sync failed).
+*   **Rollback Strategy**: Instant rollback via Vercel Dashboard in case of regression.
+
+---
+
+## 4. Project Structure
 
 ---
 
