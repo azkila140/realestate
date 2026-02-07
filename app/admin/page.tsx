@@ -11,6 +11,7 @@ import {
     CheckCircle,
     AlertCircle
 } from 'lucide-react';
+import { SystemLogs } from '@/components/admin/SystemLogs';
 
 export default function AdminDashboardPage() {
     const { leads, performanceMetrics } = fakeData;
@@ -155,51 +156,8 @@ export default function AdminDashboardPage() {
                 </div>
 
                 {/* System Health / Logs */}
-                <div className="rounded-xl bg-slate-900 border border-slate-800 p-6">
-                    <h2 className="font-bold text-lg text-white mb-4">System Health</h2>
-
-                    <div className="space-y-4 mb-6">
-                        <div className="flex justify-between items-center p-3 bg-slate-950 rounded-lg">
-                            <span className="text-sm text-slate-400">Core Web Vitals</span>
-                            <span className="text-green-400 font-bold text-sm">98/100</span>
-                        </div>
-                        <div className="flex justify-between items-center p-3 bg-slate-950 rounded-lg">
-                            <span className="text-sm text-slate-400">API Latency</span>
-                            <span className="text-green-400 font-bold text-sm">45ms</span>
-                        </div>
-                        <div className="flex justify-between items-center p-3 bg-slate-950 rounded-lg">
-                            <span className="text-sm text-slate-400">Database Status</span>
-                            <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                                <span className="text-green-400 font-bold text-sm">Healthy</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3 className="font-semibold text-white text-sm mb-3">Live Activity Log</h3>
-                    <div className="space-y-3 font-mono text-xs max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
-                        {/* Simulated log entries */}
-                        <div className="flex gap-2 text-slate-400">
-                            <span className="text-slate-600">[10:45:01]</span>
-                            <span>User visit: /palm-jumeirah-villa</span>
-                        </div>
-                        <div className="flex gap-2 text-green-400">
-                            <span className="text-slate-600">[10:44:22]</span>
-                            <span>New Lead: Ahmed Al Mansouri via WhatsApp</span>
-                        </div>
-                        <div className="flex gap-2 text-blue-400">
-                            <span className="text-slate-600">[10:44:23]</span>
-                            <span>Waitlist email sent to subscriber #402</span>
-                        </div>
-                        <div className="flex gap-2 text-amber-400">
-                            <span className="text-slate-600">[10:42:15]</span>
-                            <span>Route optimization: +12% faster</span>
-                        </div>
-                        <div className="flex gap-2 text-slate-400">
-                            <span className="text-slate-600">[10:40:00]</span>
-                            <span>System backup completed successfully</span>
-                        </div>
-                    </div>
+                <div className="h-full">
+                    <SystemLogs />
                 </div>
             </div>
         </div>
