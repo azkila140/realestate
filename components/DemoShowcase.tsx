@@ -90,7 +90,7 @@ export function DemoShowcase() {
                     <div className="w-screen h-screen flex-shrink-0 snap-center flex items-center justify-center relative overflow-hidden bg-slate-950">
                         <div className="absolute inset-0 z-0">
                             <img
-                                src="https://images.unsplash.com/photo-1512453979798-5ea904ac6605?q=80&w=2000&auto=format&fit=crop"
+                                src="https://images.unsplash.com/photo-1512453979798-5ea904ac6605?q=80&w=2000&auto=format&fit=crop" // Reliable Dubai Skyline
                                 alt="Dubai Skyline"
                                 className="w-full h-full object-cover opacity-60"
                                 loading="eager"
