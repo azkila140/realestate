@@ -55,7 +55,7 @@ export function DemoShowcase() {
             {/* Disclaimer Banner */}
             <div className="fixed top-0 left-0 right-0 z-50 bg-amber-500/10 backdrop-blur-md border-b border-amber-500/20 py-2 px-4 text-center">
                 <p className="text-amber-400 text-xs md:text-sm font-semibold tracking-widest uppercase">
-                    ⚠️ Showcase V3: Visuals & Scroll Active
+                    ⚠️ Showcase V4: Native Scroll & Arrows
                 </p>
             </div>
 
@@ -66,81 +66,98 @@ export function DemoShowcase() {
                 </div>
             </Link>
 
-            {/* Horizontal Scroll Section - SCROLL DRIVEN SLIDER */}
-            <div ref={containerRef} className="relative h-[500vh]"> {/* 500vh for 5 slides */}
-                <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center bg-slate-950">
-                    <motion.div style={{ x }} className="flex h-full w-[500vw]"> {/* 5 slides total */}
+            {/* Horizontal Scroll Section - NATIVE CSS SNAP with ARROWS */}
+            <div className="relative w-screen h-screen overflow-hidden bg-slate-950">
 
-                        {/* 1. Intro Slide */}
-                        <div className="w-screen h-screen flex-shrink-0 flex items-center justify-center relative overflow-hidden bg-slate-900">
-                            {/* Image Container - Absolute */}
+                {/* Navigation Arrows (PC Users) */}
+                <button
+                    onClick={() => containerRef.current?.scrollBy({ left: -window.innerWidth, behavior: 'smooth' })}
+                    className="fixed left-4 top-1/2 -translate-y-1/2 z-50 p-4 bg-black/30 hover:bg-black/80 backdrop-blur-md rounded-full border border-white/10 transition-all text-white hover:scale-110 hidden md:flex"
+                >
+                    <ArrowLeft className="w-8 h-8" />
+                </button>
+                <button
+                    onClick={() => containerRef.current?.scrollBy({ left: window.innerWidth, behavior: 'smooth' })}
+                    className="fixed right-4 top-1/2 -translate-y-1/2 z-50 p-4 bg-black/30 hover:bg-black/80 backdrop-blur-md rounded-full border border-white/10 transition-all text-white hover:scale-110 hidden md:flex"
+                >
+                    <ArrowLeft className="w-8 h-8 rotate-180" />
+                </button>
+
+                {/* Scroll Container */}
+                <div ref={containerRef} className="flex overflow-x-auto snap-x snap-mandatory h-full w-full no-scrollbar">
+
+                    {/* Intro Slide */}
+                    <div className="w-screen h-screen flex-shrink-0 snap-center flex items-center justify-center relative overflow-hidden bg-slate-950">
+                        <div className="absolute inset-0 z-0">
+                            <img
+                                src="https://images.unsplash.com/photo-1512453979798-5ea904ac6605?q=80&w=2000&auto=format&fit=crop"
+                                alt="Dubai Skyline"
+                                className="w-full h-full object-cover opacity-60"
+                                loading="eager"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/20 to-slate-950/80" />
+                        </div>
+                        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+                            <div className="w-24 h-24 mx-auto bg-gradient-to-br from-amber-400 to-orange-600 rounded-2xl flex items-center justify-center mb-8 shadow-2xl">
+                                <Sparkles className="w-12 h-12 text-white" />
+                            </div>
+                            <h1 className="text-6xl md:text-9xl font-playfair font-bold mb-6 text-white drop-shadow-2xl">
+                                The Luxury Standard
+                            </h1>
+                            <p className="text-2xl md:text-3xl text-amber-400 font-light tracking-[0.2em] uppercase mb-12">
+                                Dubai Prime Estates
+                            </p>
+                            <div className="animate-bounce flex flex-col items-center gap-3 opacity-70">
+                                <span className="text-sm font-medium tracking-widest uppercase md:hidden">Swipe Right</span>
+                                <span className="text-sm font-medium tracking-widest uppercase hidden md:block">Use Arrows or Scroll</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Gallery Slides */}
+                    {showcaseItems.map((item) => (
+                        <div key={item.id} className="w-screen h-screen flex-shrink-0 snap-center relative flex items-center justify-center overflow-hidden bg-slate-900">
+                            {/* Background Image */}
                             <div className="absolute inset-0 z-0">
                                 <img
-                                    src="https://images.unsplash.com/photo-1512453979798-5ea904ac6605?q=80&w=2000&auto=format&fit=crop"
-                                    alt="Dubai Skyline"
-                                    className="w-full h-full object-cover opacity-60" // Increased opacity
-                                    loading="eager"
+                                    src={item.image}
+                                    alt={item.title}
+                                    className="w-full h-full object-cover opacity-70 transition-transform duration-[3s] hover:scale-105"
+                                    loading="lazy"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/20 to-slate-950/80" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
                             </div>
 
-                            {/* Content - Relative Z-10 */}
-                            <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-                                <div
-                                    className="w-24 h-24 mx-auto bg-gradient-to-br from-amber-400 to-orange-600 rounded-2xl flex items-center justify-center mb-8 shadow-2xl shadow-orange-500/20"
-                                >
-                                    <Sparkles className="w-12 h-12 text-white" />
+                            {/* Content */}
+                            <div className="relative z-10 max-w-7xl w-full mx-auto px-8 mt-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
+                                <div>
+                                    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-sm">
+                                        {/* @ts-ignore */}
+                                        <item.icon className="w-4 h-4" /> {item.subtitle}
+                                    </div>
+                                    <h2 className="text-5xl md:text-8xl font-playfair font-bold text-white mb-8 leading-[0.9] drop-shadow-lg">
+                                        {item.title}
+                                    </h2>
+                                    <p className="text-slate-200 text-xl md:text-2xl leading-relaxed max-w-xl font-light drop-shadow-md border-l-2 border-amber-500 pl-6">
+                                        {item.desc}
+                                    </p>
                                 </div>
-                                <h1 className="text-6xl md:text-9xl font-playfair font-bold mb-6 text-white drop-shadow-2xl">
-                                    The Luxury Standard
-                                </h1>
-                                <p className="text-2xl md:text-3xl text-amber-400 font-light tracking-[0.2em] uppercase mb-12">
-                                    Dubai Prime Estates
-                                </p>
-                                <div className="animate-bounce flex flex-col items-center gap-3 opacity-70">
-                                    <span className="text-sm font-medium tracking-widest uppercase">Scroll Down to Explore</span>
-                                    <div className="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
+                                <div className="hidden lg:block text-right self-center">
+                                    <div className="text-[12rem] font-playfair font-bold text-white/5 leading-none select-none">0{item.id}</div>
                                 </div>
                             </div>
                         </div>
+                    ))}
 
-                        {/* 2. Gallery Slides */}
-                        {showcaseItems.map((item) => (
-                            <div key={item.id} className="w-screen h-screen flex-shrink-0 relative flex items-center justify-center overflow-hidden bg-slate-950">
-                                {/* Background Image */}
-                                <div className="absolute inset-0 z-0">
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        className="w-full h-full object-cover opacity-70 transition-transform duration-[3s] hover:scale-105"
-                                        loading="lazy"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
-                                </div>
-
-                                {/* Content */}
-                                <div className="relative z-10 max-w-7xl w-full mx-auto px-8 mt-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
-                                    <div>
-                                        <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-sm">
-                                            {/* @ts-ignore */}
-                                            <item.icon className="w-4 h-4" /> {item.subtitle}
-                                        </div>
-                                        <h2 className="text-5xl md:text-8xl font-playfair font-bold text-white mb-8 leading-[0.9] drop-shadow-lg">
-                                            {item.title}
-                                        </h2>
-                                        <p className="text-slate-200 text-xl md:text-2xl leading-relaxed max-w-xl font-light drop-shadow-md border-l-2 border-amber-500 pl-6">
-                                            {item.desc}
-                                        </p>
-                                    </div>
-                                    <div className="hidden lg:block text-right self-center">
-                                        <div className="text-[12rem] font-playfair font-bold text-white/5 leading-none select-none">
-                                            0{item.id}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </motion.div>
+                    {/* Final CTA Slide */}
+                    <div className="w-screen h-screen flex-shrink-0 snap-center flex items-center justify-center relative overflow-hidden bg-slate-950">
+                        <div className="relative z-10 text-center px-6">
+                            <h2 className="text-5xl font-playfair font-bold text-white mb-8">Begin Your Journey</h2>
+                            <Link href="/" className="inline-flex items-center gap-3 px-10 py-5 bg-amber-500 hover:bg-amber-600 text-slate-950 text-xl font-bold rounded-full transition-all hover:scale-105">
+                                Return Home
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
 
