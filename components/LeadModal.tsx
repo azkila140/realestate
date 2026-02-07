@@ -101,7 +101,7 @@ export function LeadModal({ isOpen, onClose, propertyRef }: LeadModalProps) {
             <DialogContent className="sm:max-w-md bg-slate-900 border-amber-400/30 text-white">
                 <DialogHeader>
                     <DialogTitle className="font-playfair text-3xl font-bold text-center">
-                        <span className="gold-gradient bg-clip-text text-transparent">
+                        <span className="text-amber-400">
                             استفسار حصري
                         </span>
                     </DialogTitle>
@@ -109,7 +109,7 @@ export function LeadModal({ isOpen, onClose, propertyRef }: LeadModalProps) {
 
                 <AnimatePresence mode="wait">
                     {submitStatus === 'success' ? (
-                        // Success State
+                        // ... Success State Code ...
                         <motion.div
                             key="success"
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -155,7 +155,7 @@ export function LeadModal({ isOpen, onClose, propertyRef }: LeadModalProps) {
                                         id="name"
                                         {...register('name')}
                                         placeholder="أحمد المكتوم"
-                                        className="mt-1.5 bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 focus:border-amber-400 focus:ring-amber-400"
+                                        className={`mt-1.5 bg-slate-800 text-white placeholder:text-slate-500 focus:ring-amber-400 ${errors.name ? 'border-red-500 focus:border-red-500' : 'border-slate-700 focus:border-amber-400'}`}
                                         disabled={isSubmitting}
                                     />
                                     {errors.name && (
@@ -172,7 +172,7 @@ export function LeadModal({ isOpen, onClose, propertyRef }: LeadModalProps) {
                                         id="phone"
                                         {...register('phone')}
                                         placeholder="+971 50 123 4567"
-                                        className="mt-1.5 bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 focus:border-amber-400 focus:ring-amber-400"
+                                        className={`mt-1.5 bg-slate-800 text-white placeholder:text-slate-500 focus:ring-amber-400 ${errors.phone ? 'border-red-500 focus:border-red-500' : 'border-slate-700 focus:border-amber-400'}`}
                                         disabled={isSubmitting}
                                     />
                                     {errors.phone && (
@@ -188,7 +188,7 @@ export function LeadModal({ isOpen, onClose, propertyRef }: LeadModalProps) {
                                     <select
                                         id="budgetRange"
                                         {...register('budgetRange')}
-                                        className="mt-1.5 w-full bg-slate-800 border border-slate-700 text-white rounded-md px-3 py-2 focus:border-amber-400 focus:ring-amber-400 focus:outline-none"
+                                        className={`mt-1.5 w-full bg-slate-800 border text-white rounded-md px-3 py-2 focus:ring-amber-400 focus:outline-none ${errors.budgetRange ? 'border-red-500 focus:border-red-500' : 'border-slate-700 focus:border-amber-400'}`}
                                         disabled={isSubmitting}
                                     >
                                         <option value="">اختر نطاق الميزانية</option>
@@ -211,7 +211,7 @@ export function LeadModal({ isOpen, onClose, propertyRef }: LeadModalProps) {
                                     <select
                                         id="propertyType"
                                         {...register('propertyType')}
-                                        className="mt-1.5 w-full bg-slate-800 border border-slate-700 text-white rounded-md px-3 py-2 focus:border-amber-400 focus:ring-amber-400 focus:outline-none"
+                                        className={`mt-1.5 w-full bg-slate-800 border text-white rounded-md px-3 py-2 focus:ring-amber-400 focus:outline-none ${errors.propertyType ? 'border-red-500 focus:border-red-500' : 'border-slate-700 focus:border-amber-400'}`}
                                         disabled={isSubmitting}
                                     >
                                         <option value="">اختر نوع العقار</option>
