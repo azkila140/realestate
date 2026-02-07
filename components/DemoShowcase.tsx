@@ -28,7 +28,7 @@ export function DemoShowcase() {
             id: 2,
             title: "Palm Jumeirah Frond",
             subtitle: "Exclusive Island Living",
-            image: "https://images.unsplash.com/photo-1512453979798-5ea904ac6605?q=80&w=2000&auto=format&fit=crop", // Aerial Palm/Marina
+            image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2000&auto=format&fit=crop", // Distinct Luxury Villa on Palm
             icon: Building2,
             desc: "Private beachfront villas on the world's most iconic man-made island."
         },
@@ -123,7 +123,7 @@ export function DemoShowcase() {
                                     src={item.image}
                                     alt={item.title}
                                     className="w-full h-full object-cover opacity-70 transition-transform duration-[3s] hover:scale-105"
-                                    loading="lazy"
+                                    loading="eager" // FORCE IMAGE LOAD
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
                             </div>
@@ -154,10 +154,10 @@ export function DemoShowcase() {
                         {/* Background Image - Luxury Villa Dusk */}
                         <div className="absolute inset-0 z-0">
                             <img
-                                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop"
+                                src="https://images.unsplash.com/photo-1512453979798-5ea904ac6605?q=80&w=2000&auto=format&fit=crop"
                                 alt="Dubai Luxury Villa"
                                 className="w-full h-full object-cover opacity-60"
-                                loading="lazy"
+                                loading="eager"
                             />
                             <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/40 to-slate-950/80" />
                         </div>
