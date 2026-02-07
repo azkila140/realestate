@@ -67,7 +67,7 @@ export async function captureLead(
         let priority = 'medium';
 
         if (isHighValue) {
-            assignedAgent = 'Mohamad Kodmani'; // CEO / Senior
+            assignedAgent = 'Mohamad Kodmani'; // Senior Agent / Owner
             priority = 'high';
         } else if (isCommercial) {
             assignedAgent = 'Omar Hassan'; // Commercial Specialist
