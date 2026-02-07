@@ -18,7 +18,7 @@ const optimizations = [
     {
         icon: Zap,
         title: 'Server-Side Rendering (SSR)',
-        description: 'Next.js 15 App Router with React Server Components for instant page loads',
+        description: 'Next.js 16 App Router with React Server Components for instant page loads',
         impact: '40% faster initial load',
         color: 'from-yellow-500 to-orange-500'
     },
@@ -212,11 +212,12 @@ export default function PerformancePage() {
                             {
                                 category: 'Frontend',
                                 tech: [
-                                    'Next.js 15 (App Router)',
+                                    'Next.js 16 (App Router)',
                                     'React 19 (Server Components)',
-                                    'TypeScript (Strict Mode)',
-                                    'Tailwind CSS',
-                                    'Framer Motion'
+                                    'Tailwind CSS v4',
+                                    'Framer Motion',
+                                    'Supabase',
+                                    'Vercel Edge Network',
                                 ]
                             },
                             {

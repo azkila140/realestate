@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { WebsiteProtection } from "@/components/WebsiteProtection";
 import "./globals.css";
 
 // Premium Typography Configuration
@@ -125,6 +126,7 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${inter.variable} antialiased font-inter`}
       >
+        <WebsiteProtection />
         {children}
         <SpeedInsights />
       </body>

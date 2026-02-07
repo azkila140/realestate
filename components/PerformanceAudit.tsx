@@ -136,9 +136,9 @@ export function PerformanceAudit() {
                     className="text-center"
                 >
                     <div className="glass-morphism p-8 rounded-2xl border border-amber-400/30 max-w-4xl mx-auto">
-                        <p className="text-lg text-slate-300 mb-4">
-                            <span className="text-amber-400 font-bold">إثبات تقني:</span> تم بناء هذا العرض
-                            باستخدام Next.js 14 App Router و TypeScript و Tailwind CSS و Supabase.
+                        <p className="text-slate-400 leading-relaxed mb-6">
+                            تم بناء منصة "دبي برايم" وفق معايير هندسية صارمة لضمان سرعة تحميل فائقة وتجربة مستخدم سلسة،
+                            باستخدام Next.js 16 App Router و TypeScript و Tailwind v4 و Supabase.
                         </p>
                         <p className="text-sm text-slate-400">
                             يتم التقاط كل عميل محتمل من جانب الخادم قبل إعادة التوجيه إلى واتساب. صفر فقدان للبيانات.
