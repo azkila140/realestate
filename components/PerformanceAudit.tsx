@@ -138,15 +138,23 @@ export function PerformanceAudit() {
                     <div className="glass-morphism p-8 rounded-2xl border border-amber-400/30 max-w-4xl mx-auto">
                         <p className="text-slate-400 leading-relaxed mb-6">
                             تم بناء منصة "دبي برايم" وفق معايير هندسية صارمة لضمان سرعة تحميل فائقة وتجربة مستخدم سلسة،
-                            باستخدام Next.js 16 App Router و TypeScript و Tailwind v4 و Supabase.
+                            باستخدام <span className="text-amber-400 font-bold">Next.js 16 App Router</span> و <span className="text-amber-400 font-bold">Tailwind v4</span> و Supabase.
                         </p>
-                        <p className="text-sm text-slate-400">
-                            يتم التقاط كل عميل محتمل من جانب الخادم قبل إعادة التوجيه إلى واتساب. صفر فقدان للبيانات.
-                            هندسة معمارية على مستوى المؤسسات.
-                        </p>
+                        يتم التقاط كل عميل محتمل من جانب الخادم قبل إعادة التوجيه إلى واتساب. صفر فقدان للبيانات.
+                        هندسة معمارية على مستوى المؤسسات.
+                    </p>
+
+                    <div className="flex justify-center gap-4">
+                        <a
+                            href="/performance"
+                            className="inline-flex items-center gap-2 px-6 py-2 bg-amber-400/10 hover:bg-amber-400/20 text-amber-400 rounded-full border border-amber-400/20 transition-all text-sm font-bold"
+                        >
+                            📊 View Speed Metrics
+                        </a>
                     </div>
-                </motion.div>
             </div>
-        </section>
+        </motion.div>
+            </div >
+        </section >
     );
 }

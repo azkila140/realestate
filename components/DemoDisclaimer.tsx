@@ -23,11 +23,11 @@ export function DemoDisclaimer() {
                             <Info className="w-5 h-5 text-white" />
                         </div>
                         <div className="flex-1">
-                            <p className="text-white font-semibold text-sm md:text-base">
-                                ⚠️ <span className="font-bold">Demo Mode</span> – This project uses simulated data and integrations to demonstrate full real-estate lead automation architecture and performance.
+                            <p className="text-white font-semibold text-sm md:text-base mb-1">
+                                ⚠️ <span className="font-bold">Architecture Demo</span> – <span className="text-green-300 font-mono">REAL:</span> DB/RLS/Validation • <span className="text-amber-300 font-mono">MOCK:</span> WhatsApp/CRM Integrations
                             </p>
                             <p className="text-white/80 text-xs hidden md:block">
-                                All leads, properties, agents, and WhatsApp integrations are mocked for demonstration purposes.
+                                Full Production Cycle: Supabase (SQL/RLS) & Next.js Server Actions are <strong>Active</strong>. External APIs are simulated for demo safety.
                             </p>
                         </div>
                     </div>
