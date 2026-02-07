@@ -12,10 +12,12 @@ import { ExitIntentPopup } from '@/components/ExitIntentPopup';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { DemoDisclaimer } from '@/components/DemoDisclaimer';
 import { ContactForm } from '@/components/ContactForm';
+import { JsonLd } from '@/components/JsonLd';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950">
+      <JsonLd />
       <DemoDisclaimer />
       <Navigation />
 

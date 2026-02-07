@@ -88,59 +88,49 @@ export function PressReleases() {
                             transition={{ delay: index * 0.1, duration: 0.6 }}
                             className="group glass-morphism rounded-2xl overflow-hidden border border-white/10 hover-lift cursor-pointer"
                         >
-                            {/* Image */}
-                            <div className="relative h-48 overflow-hidden">
-                                <div
-                                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                                    style={{ backgroundImage: `url(${article.image})` }}
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
-
-                                {/* Date Badge */}
-                                <div className="absolute top-4 right-4">
-                                    <div className="glass-morphism px-3 py-1.5 rounded-lg border border-amber-400/30 flex items-center gap-2">
-                                        <Calendar className="w-3 h-3 text-amber-400" />
-                                        <span className="text-amber-400 text-xs font-semibold">
-                                            {article.date.split(' / ')[0]}
-                                        </span>
-                                    </div>
+                            <Calendar className="w-3 h-3 text-amber-400" />
+                            <span className="text-amber-400 text-xs font-semibold">
+                                {article.date.split(' / ')[0]}
+                            </span>
+                        </div>
                                 </div>
-                            </div>
-
-                            {/* Content */}
-                            <div className="p-6">
-                                <h3 className="font-playfair text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
-                                    {article.title}
-                                </h3>
-                                <p className="text-amber-400 text-sm mb-3">{article.titleEn}</p>
-                                <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                                    {article.excerpt}
-                                </p>
-
-                                {/* Read More */}
-                                <div className="flex items-center gap-2 text-amber-400 text-sm font-semibold group-hover:gap-3 transition-all">
-                                    <span>اقرأ المزيد / Read More</span>
-                                    <ArrowRight className="w-4 h-4" />
-                                </div>
-                            </div>
-                        </motion.article>
-                    ))}
-                </div>
-
-                {/* View All Button */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.6, duration: 0.6 }}
-                    className="text-center mt-12"
-                >
-                    <a href="/showcase" className="inline-flex items-center gap-2 px-8 py-4 glass-morphism border border-amber-400/30 text-amber-400 font-semibold rounded-lg hover:bg-amber-400/10 transition-all duration-300 hover:scale-105">
-                        عرض الكل / View All
-                        <ArrowRight className="w-5 h-5" />
-                    </a>
-                </motion.div>
             </div>
-        </section>
+
+            {/* Content */}
+            <div className="p-6">
+                <h3 className="font-playfair text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
+                    {article.title}
+                </h3>
+                <p className="text-amber-400 text-sm mb-3">{article.titleEn}</p>
+                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                    {article.excerpt}
+                </p>
+
+                {/* Read More */}
+                <div className="flex items-center gap-2 text-amber-400 text-sm font-semibold group-hover:gap-3 transition-all">
+                    <span>اقرأ المزيد / Read More</span>
+                    <ArrowRight className="w-4 h-4" />
+                </div>
+            </div>
+        </motion.article>
+    ))
+}
+                </div >
+
+    {/* View All Button */ }
+    < motion.div
+initial = {{ opacity: 0, y: 20 }}
+whileInView = {{ opacity: 1, y: 0 }}
+viewport = {{ once: true }}
+transition = {{ delay: 0.6, duration: 0.6 }}
+className = "text-center mt-12"
+    >
+    <a href="/showcase" className="inline-flex items-center gap-2 px-8 py-4 glass-morphism border border-amber-400/30 text-amber-400 font-semibold rounded-lg hover:bg-amber-400/10 transition-all duration-300 hover:scale-105">
+        عرض الكل / View All
+        <ArrowRight className="w-5 h-5" />
+    </a>
+                </motion.div >
+            </div >
+        </section >
     );
 }
