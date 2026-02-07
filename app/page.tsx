@@ -11,6 +11,7 @@ import { SectionWrapper } from '@/components/SectionWrapper';
 import { ExitIntentPopup } from '@/components/ExitIntentPopup';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { DemoDisclaimer } from '@/components/DemoDisclaimer';
+import { ContactForm } from '@/components/ContactForm';
 
 export default function Home() {
   return (
@@ -45,6 +46,8 @@ export default function Home() {
       <SectionWrapper id="press" delay={0.1}>
         <PressReleases />
       </SectionWrapper>
+
+      <ContactForm />
 
       <SectionWrapper id="contact" delay={0.1}>
         <Footer />

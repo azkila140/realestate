@@ -40,6 +40,7 @@ export function Footer() {
                                 { label: 'الركائز / Pillars', href: '#pillars' },
                                 { label: 'العقارات / Properties', href: '#properties' },
                                 { label: 'الأخبار / Press', href: '#press' },
+                                { label: 'أداء الموقع / Performance', href: '/performance' },
                                 { label: 'لوحة التحكم / Admin', href: '/admin', adminLink: true },
                             ].map((link, index) => (
                                 <li key={index}>
