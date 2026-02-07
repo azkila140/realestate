@@ -2,6 +2,8 @@
 
 import { Phone, Mail, MapPin, Instagram, Linkedin, Facebook, Lock } from 'lucide-react';
 
+import Link from 'next/link';
+
 export function Footer() {
     return (
         <footer id="contact" className="bg-slate-950 border-t border-white/10">
@@ -175,9 +177,9 @@ export function Footer() {
                             © 2026 محمد قدماني للعقارات. جميع الحقوق محفوظة.
                         </p>
                         <div className="flex gap-4 items-center">
-                            <a href="/admin" className="text-slate-600 hover:text-amber-400 transition-colors text-xs font-semibold">
+                            <Link href="/admin" className="text-slate-600 hover:text-amber-400 transition-colors text-xs font-semibold">
                                 Admin Access
-                            </a>
+                            </Link>
                             <p className="text-slate-600 text-xs text-center md:text-left">
                                 Built with Next.js 16 • Tailwind v4 • Supabase
                             </p>
