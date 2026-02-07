@@ -19,11 +19,19 @@ export function Navigation() {
         setIsOpen(false);
     };
 
-    const menuItems = [
+    interface MenuItem {
+        id: string;
+        label: string;
+        isLink?: boolean;
+        isScroll?: boolean;
+    }
+
+    const menuItems: MenuItem[] = [
         { id: 'home', label: 'Home' },
         { id: 'founder', label: 'About' }, // Changed to 'founder' to match section ID
         { id: 'pillars', label: 'Invest' },
         { id: 'properties', label: 'Properties' },
+        { id: '/secondary', label: 'Secondary', isLink: true },
         { id: 'press', label: 'News' },
         { id: 'contact', label: 'Contact', isScroll: true },
     ];
@@ -72,7 +80,13 @@ export function Navigation() {
                                     initial={{ opacity: 0, y: -20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: i * 0.1 }}
-                                    onClick={() => scrollToSection(item.id)}
+                                    onClick={() => {
+                                        if (item.isLink) {
+                                            window.location.href = item.id;
+                                        } else {
+                                            scrollToSection(item.id);
+                                        }
+                                    }}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     className="relative px-4 py-2 text-slate-300 hover:text-white transition-colors group"
@@ -135,7 +149,13 @@ export function Navigation() {
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: i * 0.05 }}
-                                        onClick={() => scrollToSection(item.id)}
+                                        onClick={() => {
+                                            if (item.isLink) {
+                                                window.location.href = item.id;
+                                            } else {
+                                                scrollToSection(item.id);
+                                            }
+                                        }}
                                         className="text-left px-4 py-3 text-slate-300 hover:text-white hover:bg-amber-500/10 rounded-lg transition-all"
                                     >
                                         {item.label}
