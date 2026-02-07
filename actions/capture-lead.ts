@@ -53,6 +53,27 @@ export async function captureLead(
         // Step 1: Validate with Zod (Type-Safe)
         const validatedData = leadSchema.parse(formData);
 
+        // 🧠 BUSINESS LOGIC: LEAD ROUTING & PRIORITY
+        // Rule 1: High Budget (> 5M implied) or Penthouses = VIP
+        const isHighValue = validatedData.budgetRange.includes('5M') ||
+            validatedData.budgetRange.includes('10M') ||
+            validatedData.budgetRange.includes('+') ||
+            validatedData.propertyType === 'Penthouse';
+
+        // Rule 2: Commercial = Specialized Agent
+        const isCommercial = validatedData.propertyType === 'Commercial';
+
+        let assignedAgent = 'Lina Farouk'; // Default (Junior)
+        let priority = 'medium';
+
+        if (isHighValue) {
+            assignedAgent = 'Mohamad Kodmani'; // CEO / Senior
+            priority = 'high';
+        } else if (isCommercial) {
+            assignedAgent = 'Omar Hassan'; // Commercial Specialist
+            priority = 'high';
+        }
+
         // Step 2: Insert into Supabase (Secure the Lead)
         const { data: leadData, error } = await supabase
             .from('leads')
@@ -66,6 +87,8 @@ export async function captureLead(
                 contact_preference: validatedData.contactPreference,
                 source: 'website_demo',
                 status: 'new',
+                assigned_agent: assignedAgent,
+                priority: priority,
             })
             .select('id')
             .single();
