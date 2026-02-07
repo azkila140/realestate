@@ -176,6 +176,9 @@ export function Footer() {
                         <p className="text-slate-500 text-sm text-center md:text-right">
                             © 2026 محمد قدماني للعقارات. جميع الحقوق محفوظة.
                         </p>
+                        <p className="text-[10px] text-slate-600 text-center md:text-right mt-1 font-medium tracking-wide">
+                            Created with love By <span className="text-amber-400 font-bold">Mehdi</span> in stylish and stunning way
+                        </p>
                         <div className="flex gap-4 items-center">
                             <Link href="/admin" className="text-slate-600 hover:text-amber-400 transition-colors text-xs font-semibold">
                                 Admin Access
