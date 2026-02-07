@@ -20,7 +20,7 @@ export function DemoShowcase() {
             id: 1,
             title: "Burj Khalifa Views",
             subtitle: "The Center of Now",
-            image: "https://images.unsplash.com/photo-1582672060674-bc4099238383?q=80&w=2000&auto=format&fit=crop", // Iconic Night View
+            image: "https://images.unsplash.com/photo-1546412414-e1885259563a?q=80&w=2000&auto=format&fit=crop", // Reliable Burj Khalifa Night
             icon: Sparkles,
             desc: "Commanding views of the world's tallest tower from your private terrace."
         },
@@ -28,7 +28,7 @@ export function DemoShowcase() {
             id: 2,
             title: "Palm Jumeirah Frond",
             subtitle: "Exclusive Island Living",
-            image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2000&auto=format&fit=crop", // Distinct Luxury Villa on Palm
+            image: "https://images.unsplash.com/photo-1512632500433-372a95b5c3ad?q=80&w=2000&auto=format&fit=crop", // Official Palm Jumeirah Aerial
             icon: Building2,
             desc: "Private beachfront villas on the world's most iconic man-made island."
         },
