@@ -151,9 +151,20 @@ export function DemoShowcase() {
 
                     {/* Final CTA Slide */}
                     <div className="w-screen h-screen flex-shrink-0 snap-center flex items-center justify-center relative overflow-hidden bg-slate-950">
+                        {/* Background Image - Luxury Villa Dusk */}
+                        <div className="absolute inset-0 z-0">
+                            <img
+                                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop"
+                                alt="Dubai Luxury Villa"
+                                className="w-full h-full object-cover opacity-60"
+                                loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/40 to-slate-950/80" />
+                        </div>
+
                         <div className="relative z-10 text-center px-6">
-                            <h2 className="text-5xl font-playfair font-bold text-white mb-8">Begin Your Journey</h2>
-                            <Link href="/" className="inline-flex items-center gap-3 px-10 py-5 bg-amber-500 hover:bg-amber-600 text-slate-950 text-xl font-bold rounded-full transition-all hover:scale-105">
+                            <h2 className="text-5xl font-playfair font-bold text-white mb-8 drop-shadow-2xl">Begin Your Journey</h2>
+                            <Link href="/" className="inline-flex items-center gap-3 px-10 py-5 bg-amber-500 hover:bg-amber-600 text-slate-950 text-xl font-bold rounded-full transition-all hover:scale-105 shadow-xl shadow-amber-500/20">
                                 Return Home
                             </Link>
                         </div>
