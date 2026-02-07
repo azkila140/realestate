@@ -6,7 +6,7 @@ This project demonstrates the capability to build high-performance, visually stu
 
 **Core Value Proposition:**
 - **Visuals**: "Showcase V4" offering native scroll snap mixed with desktop navigation controls.
-- **Performance**: High-performance architecture leveraging Next.js 16 Server Components (Targeting 95+ Core Web Vitals).
+- **Performance**: High-performance architecture leveraging Next.js 16 Server Components (Targeting 95+ Lighthouse Performance Score).
 - **Operations**: Automated logic to route high-net-worth leads directly to senior management.
 
 ---
@@ -24,13 +24,13 @@ This project demonstrates the capability to build high-performance, visually stu
 ### Backend & Data Layer
 - **BaaS**: Supabase (PostgreSQL)
 - **API**: Next.js Server Actions for Core Logic; API Routes supported for Webhooks/Integrations.
-- **Validation**: Strict Input Validation & Schema Enforcement via Zod (Prevents malformed data).
+- **Validation**: Strict Input Validation & Schema Enforcement via Zod (ensures data integrity).
 - **Security**: Row Level Security (RLS) enabled on database tables.
 
 ### SEO & Performance
 - **Structured Data**: JSON-LD (`RealEstateAgent` Schema) injected for Rich Results.
 - **Metadata**: Dynamic OpenGraph tags for social sharing (WhatsApp/LinkedIn).
-- **Optimization**: `next/image` and Eager Loading strategies used for critical visual assets.
+- **Optimization**: Strategic use of `priority={true}` on `next/image` for LCP assets.
 
 ---
 
@@ -40,7 +40,7 @@ The application is not just a brochure; it has business logic built-in.
 
 ### A. Intelligent Lead Routing (`capture-lead.ts`)
 When a user submits the inquiry form, the system analyzes the inputs:
-1. **VIP Detection**: If Budget > 5M AED OR Type is 'Penthouse' -> **Route to Senior Agent / Owner (Mohamad Kodmani)**.
+1. **VIP Detection**: If Budget > 5M AED OR Type is 'Penthouse' -> **Route to Senior Agent / Owner**.
 2. **Commercial**: If Type is 'Commercial' -> **Route to Commercial Specialist**.
 3. **Standard**: All others -> **Route to Junior Agent**.
 
@@ -55,11 +55,11 @@ Every interaction is logged to `system_logs` in Supabase:
 ## 4. DevOps & Life-Cycle Management
 Beyond code, the project is designed for operational excellence:
 1.  **DNS & Domain Management**: Managed via Vercel with automatic SSL propagation.
-2.  **Environment Variables**: Secure management of Supabase Keys (`SUPABASE_SERVICE_ROLE`) strictly in production environments; Development uses limited anon keys.
+2.  **Environment Variables**: Secure management of keys. `SUPABASE_SERVICE_ROLE` is strictly **Server-Side Only** (never exposed to client) to perform privileged admin actions bypassing RLS.
 3.  **CI/CD Pipeline**:
-    *   **Preview**: Automatic deployments for PRs to test features (e.g., "Showcase V4").
-    *   **Production**: Main branch deployments with instant rollback capabilities in case of regression.
-    *   **Monitoring**: Vercel Analytics and Speed Insights configured for real-time uptime and performance tracking.
+    *   **Preview**: Automatic deployments for PRs to test features.
+    *   **Production**: Main branch deployments with instant rollback capabilities.
+    *   **Monitoring**: Vercel Speed Insights enabled to measure Core Web Vitals based on **Real User Data (RUM)**.
 
 ---
 
