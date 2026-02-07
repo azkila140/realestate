@@ -174,9 +174,14 @@ export function Footer() {
                         <p className="text-slate-500 text-sm text-center md:text-right">
                             © 2026 محمد قدماني للعقارات. جميع الحقوق محفوظة.
                         </p>
-                        <p className="text-slate-600 text-xs text-center md:text-left">
-                            Built with Next.js 14 • TypeScript • Tailwind CSS • Supabase
-                        </p>
+                        <div className="flex gap-4 items-center">
+                            <a href="/admin" className="text-slate-600 hover:text-amber-400 transition-colors text-xs font-semibold">
+                                Admin Access
+                            </a>
+                            <p className="text-slate-600 text-xs text-center md:text-left">
+                                Built with Next.js 16 • Tailwind v4 • Supabase
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
