@@ -140,7 +140,7 @@ export default function CVPageArabic() {
 
                             {/* Interactive Project Preview/Visual */}
                             <div className="relative min-h-[400px] lg:min-h-full bg-slate-800 border-t lg:border-t-0 lg:border-r border-white/10 group-hover:border-amber-500/20 transition-colors order-1 lg:order-2">
-                                <div className="absolute inset-0 bg-[url('/images/mehdi-featured-v3.jpg')] bg-cover bg-center opacity-60 group-hover:opacity-80 transition-all duration-700"></div>
+                                <div className="absolute inset-0 bg-[url('/images/mehdi-project-v5.jpg')] bg-cover bg-center opacity-60 group-hover:opacity-80 transition-all duration-700"></div>
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
                                 <div className="absolute bottom-8 left-8 right-8">
                                     <div className="bg-black/80 backdrop-blur-md p-6 rounded-xl border border-white/10" dir="ltr">
