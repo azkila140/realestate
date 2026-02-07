@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export function PressReleases() {
+    const router = useRouter();
     const articles = [
         {
             title: 'الاستثمار العقاري على الخريطة',
@@ -87,6 +90,7 @@ export function PressReleases() {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.6 }}
                             className="group glass-morphism rounded-2xl overflow-hidden border border-white/10 hover-lift cursor-pointer"
+                            onClick={() => router.push('/showcase')}
                         >
                             {/* Image */}
                             <div className="relative h-64 overflow-hidden">
@@ -126,18 +130,18 @@ export function PressReleases() {
                 </div >
 
                 {/* View All Button */}
-                < motion.div
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.6, duration: 0.6 }}
                     className="text-center mt-12"
                 >
-                    <a href="/showcase" className="inline-flex items-center gap-2 px-8 py-4 glass-morphism border border-amber-400/30 text-amber-400 font-semibold rounded-lg hover:bg-amber-400/10 transition-all duration-300 hover:scale-105">
+                    <Link href="/showcase" className="inline-flex items-center gap-2 px-8 py-4 glass-morphism border border-amber-400/30 text-amber-400 font-semibold rounded-lg hover:bg-amber-400/10 transition-all duration-300 hover:scale-105">
                         عرض الكل / View All
                         <ArrowRight className="w-5 h-5" />
-                    </a>
-                </motion.div >
+                    </Link>
+                </motion.div>
             </div >
         </section >
     );
