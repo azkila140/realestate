@@ -1,6 +1,6 @@
 'use client';
 
-import { Phone, Mail, MapPin, Instagram, Linkedin, Facebook } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, Linkedin, Facebook, Lock } from 'lucide-react';
 
 export function Footer() {
     return (
@@ -40,14 +40,24 @@ export function Footer() {
                                 { label: 'الركائز / Pillars', href: '#pillars' },
                                 { label: 'العقارات / Properties', href: '#properties' },
                                 { label: 'الأخبار / Press', href: '#press' },
+                                { label: 'لوحة التحكم / Admin', href: '/admin', adminLink: true },
                             ].map((link, index) => (
                                 <li key={index}>
-                                    <a
-                                        href={link.href}
-                                        className="text-slate-400 hover:text-amber-400 transition-colors text-sm"
-                                    >
-                                        {link.label}
-                                    </a>
+                                    {link.adminLink ? (
+                                        <a
+                                            href={link.href}
+                                            className="text-amber-500/50 hover:text-amber-400 transition-colors flex items-center gap-1 text-xs"
+                                        >
+                                            <Lock className="w-3 h-3" /> {link.label}
+                                        </a>
+                                    ) : (
+                                        <a
+                                            href={link.href}
+                                            className="text-slate-400 hover:text-amber-400 transition-colors text-sm"
+                                        >
+                                            {link.label}
+                                        </a>
+                                    )}
                                 </li>
                             ))}
                         </ul>

@@ -71,6 +71,14 @@ Open [http://localhost:3000](http://localhost:3000)
 - **Meta Lead Simulation**: Facebook/Instagram lead ads pipeline
 - **System Logs**: Real-time lead processing monitoring
 
+### ⚡ API Layer (Backend Logic)
+- **Central Intake (`/api/leads`)**: Unified entry point for validation, normalization, and scoring.
+- **Intelligent Routing (`/api/routing`)**: Business rules engine (Budget > 2M = Senior Agent).
+- **WhatsApp Integration (`/api/integrations/whatsapp`)**: Simulated high-throughput messaging.
+- **CRM Operations (`/api/integrations/crm`)**: Simulated database transaction handling.
+- **Meta Ads Listener (`/api/integrations/meta`)**: Webhook endpoint for Facebook/Instagram leads.
+- **System Health (`/api/health`)**: Real-time service monitoring endpoint.
+
 ### 🎭 Fake Data Ecosystem
 
 This demo includes a complete fake data ecosystem to demonstrate real-world scenarios:
