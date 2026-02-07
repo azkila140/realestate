@@ -117,7 +117,7 @@ export function LeadFlowDiagram() {
                     </motion.div>
 
                     <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-4">
-                        <span className="gold-gradient bg-clip-text text-transparent">
+                        <span className="text-amber-400">
                             How Leads Are Processed
                         </span>
                     </h2>
@@ -244,7 +244,7 @@ export function LeadFlowDiagram() {
                             className="glass-morphism p-6 rounded-2xl border border-white/10 text-center"
                         >
                             <div className="text-3xl mb-2">{stat.icon}</div>
-                            <div className="text-2xl font-bold gold-gradient bg-clip-text text-transparent mb-1">
+                            <div className="text-2xl font-bold text-amber-400 mb-1">
                                 {stat.value}
                             </div>
                             <div className="text-sm text-slate-400">{stat.label}</div>
