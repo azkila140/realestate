@@ -111,6 +111,16 @@ export function LuxuryPropertyGrid() {
                             />
                         ))}
                     </div>
+                    {/* View All Button */}
+                    <div className="mt-16 text-center">
+                        <a
+                            href="/showcase"
+                            className="inline-flex items-center gap-2 text-slate-400 hover:text-amber-400 transition-colors group"
+                        >
+                            <span className="uppercase tracking-widest text-sm font-semibold">View Full Collection</span>
+                            <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        </a>
+                    </div>
                 </div>
             </section>
 

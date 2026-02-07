@@ -135,10 +135,10 @@ export function PressReleases() {
                     transition={{ delay: 0.6, duration: 0.6 }}
                     className="text-center mt-12"
                 >
-                    <button className="inline-flex items-center gap-2 px-8 py-4 glass-morphism border border-amber-400/30 text-amber-400 font-semibold rounded-lg hover:bg-amber-400/10 transition-all duration-300 hover:scale-105">
+                    <a href="/showcase" className="inline-flex items-center gap-2 px-8 py-4 glass-morphism border border-amber-400/30 text-amber-400 font-semibold rounded-lg hover:bg-amber-400/10 transition-all duration-300 hover:scale-105">
                         عرض الكل / View All
                         <ArrowRight className="w-5 h-5" />
-                    </button>
+                    </a>
                 </motion.div>
             </div>
         </section>

@@ -30,13 +30,13 @@ export default function Home() {
         <InvestmentPillars />
       </SectionWrapper>
 
-      <SectionWrapper id="lead-flow" delay={0.1}>
+      <div className="relative">
         <LeadFlowDiagram />
-      </SectionWrapper>
+      </div>
 
-      <SectionWrapper delay={0.1}>
+      <div id="performance">
         <PerformanceAudit />
-      </SectionWrapper>
+      </div>
 
       <SectionWrapper id="properties" delay={0.1}>
         <LuxuryPropertyGrid />

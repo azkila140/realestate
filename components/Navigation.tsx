@@ -21,11 +21,11 @@ export function Navigation() {
 
     const menuItems = [
         { id: 'home', label: 'Home' },
-        { id: 'about', label: 'About' },
+        { id: 'founder', label: 'About' }, // Changed to 'founder' to match section ID
         { id: 'pillars', label: 'Invest' },
         { id: 'properties', label: 'Properties' },
         { id: 'press', label: 'News' },
-        { id: 'contact', label: 'Contact' },
+        { id: 'contact', label: 'Contact', isScroll: true },
     ];
 
     return (
