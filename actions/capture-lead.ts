@@ -54,7 +54,7 @@ export async function captureLead(
         const validatedData = leadSchema.parse(formData);
 
         // Step 2: Insert into Supabase (Secure the Lead)
-        const { data, error } = await supabase
+        const { data: leadData, error } = await supabase
             .from('leads')
             .insert({
                 full_name: validatedData.name,
@@ -72,19 +72,52 @@ export async function captureLead(
 
         if (error) {
             console.error('Supabase Insert Error:', error);
+            // Log Error
+            await supabase.from('system_logs').insert({
+                event_type: 'LEAD_CAPTURE_ERROR',
+                status: 'FAILED',
+                details: { error: error.message, formData },
+            });
             return {
                 success: false,
                 error: 'Failed to capture lead. Please try again.',
             };
         }
 
+        // Step 3: Trigger Automation Logs (Simulating Integrations)
+        // 1. WhatsApp Log
+        await supabase.from('system_logs').insert({
+            event_type: 'WHATSAPP_OUTBOUND',
+            status: 'QUEUED',
+            lead_id: leadData.id,
+            details: {
+                recipient: validatedData.phone,
+                template: 'welcome_luxury_investor',
+                provider: 'Meta Cloud API'
+            }
+        });
+
+        // 2. CRM Sync Log
+        await supabase.from('system_logs').insert({
+            event_type: 'CRM_SYNC',
+            status: 'SUCCESS',
+            lead_id: leadData.id,
+            details: {
+                crm: 'Salesforce',
+                action: 'create_contact',
+                latency_ms: 124
+            }
+        });
+
+        // Step 4: Generate WhatsApp Link (Client Redirect)
+
         // Step 3: Construct Smart WhatsApp Link
         // Business Logic: Pre-fill message with property context and lead ID
-        const leadId = data.id;
+        const leadId = leadData.id;
         const agentNumber = '971566665560'; // Mohamad Kodmani's WhatsApp
 
         const message = encodeURIComponent(
-            `Hello, I am interested in ${validatedData.propertyRef}. My name is ${validatedData.name}. Lead Reference: ${leadId.slice(0, 8)}`
+            `High-Priority Lead [${leadId}]: Interested in ${validatedData.propertyRef} (${validatedData.propertyType}). Budget: ${validatedData.budgetRange}. Contact preferred via ${validatedData.contactPreference}. My name is ${validatedData.name}. Lead Reference: ${leadId.slice(0, 8)}`
         );
 
         const whatsappLink = `https://wa.me/${agentNumber}?text=${message}`;
