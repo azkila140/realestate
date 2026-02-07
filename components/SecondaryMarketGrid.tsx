@@ -125,8 +125,8 @@ export function SecondaryMarketGrid() {
                             key={type}
                             onClick={() => setFilter(type)}
                             className={`px-6 py-2 rounded-xl border transition-all duration-300 ${filter === type
-                                    ? 'bg-amber-400 text-slate-950 border-amber-400 font-bold'
-                                    : 'bg-slate-900 border-white/10 text-slate-400 hover:border-amber-400/50 hover:text-white'
+                                ? 'bg-amber-400 text-slate-950 border-amber-400 font-bold'
+                                : 'bg-slate-900 border-white/10 text-slate-400 hover:border-amber-400/50 hover:text-white'
                                 }`}
                         >
                             {type}
@@ -156,7 +156,10 @@ export function SecondaryMarketGrid() {
                                     <img
                                         src={property.image}
                                         alt={property.title}
+                                        width={800}
+                                        height={600}
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        loading={filteredProperties.indexOf(property) < 2 ? "eager" : "lazy"}
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80" />
                                 </div>
