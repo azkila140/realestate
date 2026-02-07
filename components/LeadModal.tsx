@@ -32,6 +32,9 @@ interface LeadModalProps {
 const formSchema = z.object({
     name: z.string().min(2, 'يجب أن يكون الاسم حرفين على الأقل'),
     phone: z.string().regex(/^(\+971|00971|971|0)?[0-9]{9}$/, 'الرجاء إدخال رقم هاتف إماراتي صحيح'),
+    budgetRange: z.string().min(1, 'الرجاء تحديد نطاق الميزانية'),
+    propertyType: z.string().min(1, 'الرجاء تحديد نوع العقار'),
+    contactPreference: z.enum(['whatsapp', 'call', 'email']),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -60,6 +63,9 @@ export function LeadModal({ isOpen, onClose, propertyRef }: LeadModalProps) {
                 name: data.name,
                 phone: data.phone,
                 propertyRef: propertyRef,
+                budgetRange: data.budgetRange,
+                propertyType: data.propertyType,
+                contactPreference: data.contactPreference,
             });
 
             if (result.success && result.whatsappLink) {
@@ -172,6 +178,93 @@ export function LeadModal({ isOpen, onClose, propertyRef }: LeadModalProps) {
                                     {errors.phone && (
                                         <p className="text-red-400 text-sm mt-1">{errors.phone.message}</p>
                                     )}
+                                </div>
+
+                                {/* Budget Range */}
+                                <div>
+                                    <Label htmlFor="budgetRange" className="text-slate-300">
+                                        نطاق الميزانية / Budget Range
+                                    </Label>
+                                    <select
+                                        id="budgetRange"
+                                        {...register('budgetRange')}
+                                        className="mt-1.5 w-full bg-slate-800 border border-slate-700 text-white rounded-md px-3 py-2 focus:border-amber-400 focus:ring-amber-400 focus:outline-none"
+                                        disabled={isSubmitting}
+                                    >
+                                        <option value="">اختر نطاق الميزانية</option>
+                                        <option value="<500K">&lt; 500K AED</option>
+                                        <option value="500K-1M">500K - 1M AED</option>
+                                        <option value="1M-2M">1M - 2M AED</option>
+                                        <option value="2M-5M">2M - 5M AED</option>
+                                        <option value="5M+">5M+ AED</option>
+                                    </select>
+                                    {errors.budgetRange && (
+                                        <p className="text-red-400 text-sm mt-1">{errors.budgetRange.message}</p>
+                                    )}
+                                </div>
+
+                                {/* Property Type */}
+                                <div>
+                                    <Label htmlFor="propertyType" className="text-slate-300">
+                                        نوع العقار / Property Type
+                                    </Label>
+                                    <select
+                                        id="propertyType"
+                                        {...register('propertyType')}
+                                        className="mt-1.5 w-full bg-slate-800 border border-slate-700 text-white rounded-md px-3 py-2 focus:border-amber-400 focus:ring-amber-400 focus:outline-none"
+                                        disabled={isSubmitting}
+                                    >
+                                        <option value="">اختر نوع العقار</option>
+                                        <option value="Apartment">شقة / Apartment</option>
+                                        <option value="Villa">فيلا / Villa</option>
+                                        <option value="Penthouse">بنتهاوس / Penthouse</option>
+                                        <option value="Townhouse">تاون هاوس / Townhouse</option>
+                                        <option value="Commercial">تجاري / Commercial</option>
+                                        <option value="Land">أرض / Land</option>
+                                    </select>
+                                    {errors.propertyType && (
+                                        <p className="text-red-400 text-sm mt-1">{errors.propertyType.message}</p>
+                                    )}
+                                </div>
+
+                                {/* Contact Preference */}
+                                <div>
+                                    <Label className="text-slate-300 mb-2 block">
+                                        طريقة التواصل المفضلة / Preferred Contact
+                                    </Label>
+                                    <div className="flex gap-4">
+                                        <label className="flex items-center gap-2 cursor-pointer">
+                                            <input
+                                                type="radio"
+                                                value="whatsapp"
+                                                {...register('contactPreference')}
+                                                defaultChecked
+                                                className="text-amber-400 focus:ring-amber-400"
+                                                disabled={isSubmitting}
+                                            />
+                                            <span className="text-slate-300">WhatsApp</span>
+                                        </label>
+                                        <label className="flex items-center gap-2 cursor-pointer">
+                                            <input
+                                                type="radio"
+                                                value="call"
+                                                {...register('contactPreference')}
+                                                className="text-amber-400 focus:ring-amber-400"
+                                                disabled={isSubmitting}
+                                            />
+                                            <span className="text-slate-300">📞 Call</span>
+                                        </label>
+                                        <label className="flex items-center gap-2 cursor-pointer">
+                                            <input
+                                                type="radio"
+                                                value="email"
+                                                {...register('contactPreference')}
+                                                className="text-amber-400 focus:ring-amber-400"
+                                                disabled={isSubmitting}
+                                            />
+                                            <span className="text-slate-300">📧 Email</span>
+                                        </label>
+                                    </div>
                                 </div>
 
                                 {/* Error Message */}

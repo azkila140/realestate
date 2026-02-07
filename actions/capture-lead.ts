@@ -21,6 +21,9 @@ const leadSchema = z.object({
             return `+971${cleaned}`;
         }),
     propertyRef: z.string().min(1, 'Property reference is required'),
+    budgetRange: z.string().min(1, 'Budget range is required'),
+    propertyType: z.string().min(1, 'Property type is required'),
+    contactPreference: z.enum(['whatsapp', 'call', 'email']),
 });
 
 export type LeadFormData = z.infer<typeof leadSchema>;
@@ -54,10 +57,15 @@ export async function captureLead(
         const { data, error } = await supabase
             .from('leads')
             .insert({
-                name: validatedData.name,
+                full_name: validatedData.name,
                 phone: validatedData.phone,
+                property_interest: validatedData.propertyRef,
                 property_ref: validatedData.propertyRef,
-                status: 'captured',
+                budget_range: validatedData.budgetRange,
+                property_type: validatedData.propertyType,
+                contact_preference: validatedData.contactPreference,
+                source: 'website_demo',
+                status: 'new',
             })
             .select('id')
             .single();
