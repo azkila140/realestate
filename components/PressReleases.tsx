@@ -125,7 +125,7 @@ export function PressReleases() {
                                 </div>
                             </div>
                         </motion.article>
-                    ))
+                    ))}
                 </div>
 
                 {/* View All Button */}
