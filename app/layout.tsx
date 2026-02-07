@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import { WebsiteProtection } from "@/components/WebsiteProtection";
 import "./globals.css";
 
@@ -129,6 +130,7 @@ export default function RootLayout({
         <WebsiteProtection />
         {children}
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
