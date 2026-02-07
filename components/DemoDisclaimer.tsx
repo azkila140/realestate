@@ -12,10 +12,10 @@ export function DemoDisclaimer() {
     return (
         <AnimatePresence>
             <motion.div
-                initial={{ y: -100, opacity: 0 }}
+                initial={{ y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -100, opacity: 0 }}
-                className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-amber-500/90 to-orange-500/90 backdrop-blur-sm border-b border-amber-400/30"
+                exit={{ y: 100, opacity: 0 }}
+                className="fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-r from-amber-500/90 to-orange-500/90 backdrop-blur-sm border-t border-amber-400/30"
             >
                 <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3 flex-1">
