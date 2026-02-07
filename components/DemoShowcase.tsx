@@ -12,8 +12,8 @@ export function DemoShowcase() {
         offset: ['start start', 'end end'],
     });
 
-    const x = useTransform(scrollYProgress, [0, 1], ['0%', '-75%']); // Horizontal scroll effect
-    const opacity = useTransform(scrollYProgress, [0.8, 1], [1, 0]);
+    const x = useTransform(scrollYProgress, [0, 1], ['0%', '-80%']); // Move 4 screens out of 5 (80%)
+    const opacity = useTransform(scrollYProgress, [0.85, 1], [1, 0]);
 
     const showcaseItems = [
         {
@@ -69,10 +69,16 @@ export function DemoShowcase() {
             {/* Horizontal Scroll Section */}
             <div ref={containerRef} className="relative h-[400vh]"> {/* Tall container to drive scroll */}
                 <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-                    <motion.div style={{ x, opacity }} className="flex gap-0">
+                    <motion.div style={{ x, opacity }} className="flex gap-0 w-[500vw]">
                         {/* Intro Slide */}
-                        <div className="w-screen h-screen flex-shrink-0 flex items-center justify-center bg-slate-950 relative">
-                            <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1512453979798-5ea904ac6605?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center" />
+                        <div className="w-screen h-screen flex-shrink-0 flex items-center justify-center bg-slate-950 relative overflow-hidden">
+                            <div className="absolute inset-0 opacity-40">
+                                <img
+                                    src="https://images.unsplash.com/photo-1512453979798-5ea904ac6605?q=80&w=1920&auto=format&fit=crop"
+                                    alt="Dubai Skyline"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
                             <div className="relative z-10 text-center px-6">
                                 <motion.div
                                     initial={{ scale: 0 }}
