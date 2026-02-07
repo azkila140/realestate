@@ -45,9 +45,8 @@ export default function CVPage() {
                     <div className="flex flex-col md:flex-row gap-12 items-center md:items-start">
                         {/* Avatar / Profile Image Placeholder */}
                         <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 p-1 shadow-2xl shrink-0 rotate-3 hover:rotate-0 transition-all duration-500">
-                            <div className="w-full h-full bg-slate-900 rounded-xl overflow-hidden flex items-center justify-center">
-                                <span className="text-4xl font-bold text-amber-500">MN</span>
-                                {/* <img src="/path-to-mehdi.jpg" alt="El Mehdi Noreddine" className="w-full h-full object-cover" /> */}
+                            <div className="w-full h-full bg-slate-900 rounded-xl overflow-hidden flex items-center justify-center relative">
+                                <img src="/images/mehdi-profile-1.png" alt="El Mehdi Noreddine" className="w-full h-full object-cover" />
                             </div>
                         </div>
 
@@ -142,8 +141,8 @@ export default function CVPage() {
 
                             {/* Interactive Project Preview/Visual */}
                             <div className="relative min-h-[400px] lg:min-h-full bg-slate-800 border-t lg:border-t-0 lg:border-l border-white/10 group-hover:border-amber-500/20 transition-colors">
-                                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1512453979798-5ea904ac6605?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-60 transition-all duration-700"></div>
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                                <div className="absolute inset-0 bg-[url('/images/mehdi-work-2.png')] bg-cover bg-center opacity-60 group-hover:opacity-80 transition-all duration-700"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
                                 <div className="absolute bottom-8 left-8 right-8">
                                     <div className="bg-black/80 backdrop-blur-md p-6 rounded-xl border border-white/10">
                                         <div className="flex justify-between items-end">
