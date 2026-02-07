@@ -163,7 +163,65 @@ export default function CVPageArabic() {
                     </div>
                 </section>
 
-                {/* 2. Professional Experience */}
+                {/* 2. Cover Letter */}
+                <section>
+                    <div className="bg-slate-900/50 p-8 md:p-12 rounded-3xl border border-amber-500/10 relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-500 via-amber-200 to-amber-500"></div>
+                        <h3 className="text-2xl font-playfair font-bold text-white mb-8">خطاب التقديم (Cover Letter)</h3>
+
+                        <div className="prose prose-invert prose-lg max-w-none text-slate-300 leading-relaxed font-light">
+                            <p className="font-bold text-white mb-6">إلى مدير التوظيف،</p>
+
+                            <p className="mb-6">
+                                لقد اطلعت باهتمام بالغ على إعلانكم لطلب <span className="text-amber-400 font-bold">"Senior Full Stack Developer"</span>.
+                                ما شد انتباهي بشكل خاص هو تركيزكم الصريح على مبدأ: <span className="italic text-white">"المواقع = آلات مبيعات"</span> و <span className="italic text-white">"السرعة = مال"</span>.
+                            </p>
+
+                            <p className="mb-6">
+                                هذه الفلسفة هي جوهر مسيرتي المهنية الممتدة لـ 7 سنوات في مجال التطوير والبرمجة. أنا لا أكتفي بتصميم مواقع "جميلة المظهر" فحسب؛ بل أقوم بهندسة أنظمة رقمية متكاملة عالية الأداء مصممة خصيصاً لتحويل الزوار إلى إيرادات فعلية.
+                            </p>
+
+                            <p className="font-bold text-white mt-8 mb-4">وفيما يلي الأسباب التي تجعلني الحل الأمثل لاحتياجاتكم:</p>
+
+                            <ul className="space-y-4 list-none pl-0">
+                                <li className="flex gap-3 items-start">
+                                    <div className="min-w-6 h-6 flex items-center justify-center bg-amber-500/20 rounded-full text-amber-400 text-sm font-bold mt-1">1</div>
+                                    <div>
+                                        <strong className="text-white">أتحدث لغة "الأعمال" ولغة "البرمجة" معاً:</strong> ذكرتم بوضوح أنكم لا تبحثون عمن "يكتب الكود فقط". والديمو المرفق خير دليل على ذلك؛ حيث قمت ببرمجة نظام ذكي لتوجيه العملاء (Lead Routing Logic) يقوم تلقائياً بفرز كبار المستثمرين (ميزانية {'>'} 5 مليون درهم) وتوجيههم مباشرة للإدارة العليا.
+                                    </div>
+                                </li>
+                                <li className="flex gap-3 items-start">
+                                    <div className="min-w-6 h-6 flex items-center justify-center bg-amber-500/20 rounded-full text-amber-400 text-sm font-bold mt-1">2</div>
+                                    <div>
+                                        <strong className="text-white">الاحترافية في Next.js 16 والأداء العالي:</strong> أنا متخصص في أحدث تقنيات Next.js (App Router, Server Actions). الديمو المعروض في هذه الصفحة يحقق درجة 100/100 في Google Lighthouse، مما يضمن لكم عدم خسارة أي عميل محتمل بسبب بطء التحميل.
+                                    </div>
+                                </li>
+                                <li className="flex gap-3 items-start">
+                                    <div className="min-w-6 h-6 flex items-center justify-center bg-amber-500/20 rounded-full text-amber-400 text-sm font-bold mt-1">3</div>
+                                    <div>
+                                        <strong className="text-white">العقلية الأمنية وحماية الأصول:</strong> أقوم بتطبيق برمجيات حماية ضد النسخ (Anti-Cloning Middleware) وسياسات صارمة لقواعد البيانات (RLS) لحماية قوائمكم العقارية من المنافسين.
+                                    </div>
+                                </li>
+                                <li className="flex gap-3 items-start">
+                                    <div className="min-w-6 h-6 flex items-center justify-center bg-amber-500/20 rounded-full text-amber-400 text-sm font-bold mt-1">4</div>
+                                    <div>
+                                        <strong className="text-white">متحدث باللغة العربية وخطة العمل:</strong> لغتي الأم هي العربية وأتحدثها بطلاقة مهنية. أنا جاهز للبدء فوراً بنظام العمل عن بعد (Remote)، مع خطة مؤكدة للانتقال والاستقرار في دبي بحلول شهر أبريل القادم.
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <p className="mt-8 mb-8">
+                                لقد قمت ببناء هذه السيرة الذاتية التفاعلية والديمو العقاري المرفق لأقدم لكم "إثباتاً عملياً" لقدراتي. أنا مستعد لتحويل تواجدكم الرقمي إلى محرك الهيمنة السوقية الذي تطمحون إليه.
+                            </p>
+
+                            <div className="mt-12 pt-8 border-t border-white/10">
+                                <p className="text-slate-400 mb-2">وتفضلوا بقبول فائق الاحترام،</p>
+                                <h4 className="text-2xl font-playfair font-bold text-white">المهدي نور الدين</h4>
+                                <p className="text-amber-400 font-medium">Senior Full Stack Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <section>
                     <h3 className="text-3xl font-playfair font-bold text-white mb-12 flex items-center gap-4">
                         <Briefcase className="w-8 h-8 text-amber-500" />
